@@ -26,23 +26,6 @@ export class UserEntity {
     @Column({ type: 'varchar', length: 64 })
     public password: string;
 
-    // @BeforeInsert()
-    // @BeforeUpdate()
-    // public async hashPassword(): Promise<void> {
-    //     if (this.password && this.password !== this._password) {
-    //         this.password = await bcrypt.hash(this.password, 8);
-    //     }
-    // }
-    //
-    // public async comparePassword(password: UserEntity['password']): Promise<boolean> {
-    //     return new Promise((resolve, reject) => {
-    //         return bcrypt.compare(password, this.password, (err, same) => {
-    //             if (err) reject(err);
-    //             return same ? resolve(same) : reject(same);
-    //         });
-    //     });
-    // }
-
     @OneToMany(type => HitEntity, HitEntity => HitEntity.id)
     public hits: HitEntity[]
 }
