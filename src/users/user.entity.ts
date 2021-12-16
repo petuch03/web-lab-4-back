@@ -1,5 +1,8 @@
-import {Entity, Column, PrimaryGeneratedColumn, OneToMany, AfterLoad, BeforeInsert, BeforeUpdate, Index} from 'typeorm';
-import { HitEntity } from "../hits/hit.entity";
+import {
+    Entity,
+    Column,
+    PrimaryGeneratedColumn,
+} from 'typeorm';
 import {ApiHideProperty, ApiProperty} from "@nestjs/swagger";
 import {Exclude} from "class-transformer";
 
@@ -25,7 +28,4 @@ export class UserEntity {
     @ApiHideProperty()
     @Column({ type: 'varchar', length: 64 })
     public password: string;
-
-    @OneToMany(type => HitEntity, HitEntity => HitEntity.id)
-    public hits: HitEntity[]
 }

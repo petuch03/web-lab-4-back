@@ -6,8 +6,9 @@ import {JwtResponseDto} from "./dto/jwt-response.dto";
 import {CreateUserDto} from "./dto/create-user.dto";
 import {ApiImplicitBody} from "@nestjs/swagger/dist/decorators/api-implicit-body.decorator";
 import {CredentialsDto} from "./dto/credentials.dto";
-import {ApiBearerAuth, ApiOkResponse} from "@nestjs/swagger";
+import {ApiBearerAuth, ApiOkResponse, ApiTags} from "@nestjs/swagger";
 
+@ApiTags('auth')
 @Controller('auth')
 export class AuthController {
     constructor(

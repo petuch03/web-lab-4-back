@@ -1,4 +1,4 @@
-import {ConflictException, Injectable} from '@nestjs/common';
+import {ConflictException, Injectable, UnauthorizedException} from '@nestjs/common';
 import {UserService} from '../users/user.service';
 import {UserEntity} from "../users/user.entity";
 import {JwtService} from "@nestjs/jwt";
@@ -18,12 +18,18 @@ export class AuthService {
     }
 
     async validateUser(email: string, pass: string): Promise<any> {
-        const user = await this.userService.findOne(email);
+        let user;
+        try {
+            user = await this.userService.findOne(email);
+        } catch (error) {
+            console.log(error);
+            throw new UnauthorizedException('INCORRECT_CREDENTIALS');
+        }
         if (user && await bcrypt.compare(pass, user.password)) {
             const {password, ...result} = user;
             return result;
         }
-        return null;
+        throw new UnauthorizedException('INCORRECT_CREDENTIALS')
     }
 
     async signin(user: UserEntity) {

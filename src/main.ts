@@ -7,6 +7,7 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
       .setTitle('web-lab-4-finale')
+      .addBearerAuth()
       .setVersion('1.0')
       .build();
   const document = SwaggerModule.createDocument(app, config);
