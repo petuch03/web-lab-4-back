@@ -12,7 +12,7 @@ import {JwtStrategy} from "./strategies/jwt.strategy";
         UserModule,
         PassportModule,
         JwtModule.register({
-            secret: 'abobus322.b',
+            secret: 'labka_nomer_4',
             signOptions: {expiresIn: '604800s'},
         }),],
     providers: [AuthService, LocalStrategy, JwtStrategy],

@@ -1,8 +1,7 @@
-import {ConflictException, Injectable, NotFoundException} from '@nestjs/common';
+import {ConflictException, Injectable} from '@nestjs/common';
 import {InjectRepository} from '@nestjs/typeorm';
-import {FindConditions, FindOneOptions, Repository} from 'typeorm';
+import {Repository} from 'typeorm';
 import {UserEntity} from './user.entity';
-import {classToPlain} from "class-transformer";
 import * as bcrypt from "bcrypt";
 
 @Injectable()
@@ -26,7 +25,7 @@ export class UserService {
             const newPass = await bcrypt.hash(entityLike.password, 10);
             const entity = this.usersRepository.create({...entityLike, password: newPass});
             return this.usersRepository.save(entity).catch(() => {
-                throw new ConflictException('troubles with saving');
+                throw new ConflictException('TROUBLES_WITH_SAVING');
             });
         });
     }

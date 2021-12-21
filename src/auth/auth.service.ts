@@ -5,7 +5,6 @@ import {JwtService} from "@nestjs/jwt";
 import {JwtResponseDto} from "./dto/jwt-response.dto";
 import {InjectRepository} from "@nestjs/typeorm";
 import {Repository} from "typeorm";
-import * as crypto from 'crypto';
 import * as bcrypt from 'bcrypt';
 
 @Injectable()

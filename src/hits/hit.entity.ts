@@ -1,7 +1,6 @@
-import {Entity, Column, PrimaryGeneratedColumn, JoinColumn, OneToOne} from 'typeorm';
+import {Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 import {ApiProperty} from "@nestjs/swagger";
-import {UserEntity} from "../users/user.entity";
 
 @Entity('hits-4')
 export class HitEntity {
