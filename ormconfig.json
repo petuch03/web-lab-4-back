@@ -2,8 +2,8 @@
   "type": "postgres",
   "host": "localhost",
   "port": 5000,
-  "username": "s308496",
-  "password": "xoa770",
+  "username": "*******",
+  "password": "*******",
   "database": "studs",
   "entities": ["dist/**/*.entity{.ts,.js}"],
   "synchronize": true
